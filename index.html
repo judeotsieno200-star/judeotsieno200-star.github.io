@@ -3,173 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JUDECOM | Premier Digital Agency</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>JUDECOM | Digital Marketing Solutions</title>
     <style>
-        :root {
-            --accent: #c5a059; /* Champagne Gold */
-            --bg: #0a0a0a;    /* Deep Midnight */
-            --text: #ffffff;
-            --soft-gray: #a1a1a1;
-        }
+        /* Base Reset & Smooth Scrolling */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        html { scroll-behavior: smooth; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        header { background: #1a1a1a; color: white; padding: 1rem; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: auto; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #00d4ff; letter-spacing: 1px; }
         
-        body { 
-            background-color: var(--bg); 
-            color: var(--text); 
-            font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
-        }
-
-        h1, h2, .logo { font-family: 'Cormorant Garamond', serif; }
-
-        /* Navigation */
-        header { 
-            padding: 2rem; 
-            position: absolute; 
-            width: 100%; 
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo { font-size: 2rem; letter-spacing: 4px; color: var(--text); text-decoration: none; }
-
         /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.9)), 
-                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 0 20px;
-        }
-
-        .hero h1 { font-size: 4.5rem; line-height: 1; margin-bottom: 20px; font-weight: 600; }
-        .hero p { font-size: 1.1rem; color: var(--soft-gray); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px; max-width: 600px; }
+        .hero { height: 80vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; color: white; text-align: center; margin-top: 60px; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 15px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; color: #ddd; }
 
         /* Buttons */
-        .cta-button {
-            padding: 18px 45px;
-            background: transparent;
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.8rem;
-            transition: all 0.4s ease;
-        }
+        .btn { display: inline-block; background: #00d4ff; color: #1a1a1a; padding: 14px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; border: none; font-size: 1rem; cursor: pointer; }
+        .btn:hover { background: #00b8e6; transform: translateY(-2px); }
+        .btn-whatsapp { background: #25D366; color: white; margin-bottom: 20px; }
+        .btn-whatsapp:hover { background: #1ebd59; color: white; }
 
-        .cta-button:hover {
-            background: var(--accent);
-            color: var(--bg);
-            box-shadow: 0 0 25px rgba(197, 160, 89, 0.4);
-        }
-
-        /* Services Section */
-        .services { padding: 120px 10%; background: #0f0f0f; }
-        .section-tag { color: var(--accent); font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; display: block; margin-bottom: 20px; }
-        .services h2 { font-size: 3rem; margin-bottom: 60px; }
-
-        .service-row {
-            display: flex;
-            border-bottom: 1px solid #222;
-            padding: 40px 0;
-            transition: 0.3s;
-        }
-
-        .service-row:hover { border-bottom: 1px solid var(--accent); }
-        .service-num { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--accent); margin-right: 50px; }
-        .service-content h3 { font-size: 1.8rem; margin-bottom: 10px; font-weight: 400; }
-        .service-content p { color: var(--soft-gray); font-weight: 300; line-height: 1.8; }
+        /* Services Grid */
+        .services { padding: 80px 20px; max-width: 1100px; margin: auto; text-align: center; scroll-margin-top: 80px; }
+        .services h2 { font-size: 2.2rem; margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { padding: 30px; border: 1px solid #eee; border-radius: 12px; transition: 0.3s; background: #fff; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .card h3 { margin-bottom: 15px; color: #1a1a1a; }
+        .card p { color: #666; line-height: 1.6; }
 
         /* Contact Section */
-        .contact-box { 
-            padding: 100px 20px; 
-            text-align: center; 
-            background: var(--bg); 
-            border-top: 1px solid #222;
-        }
+        .contact { background: #f9f9f9; padding: 80px 20px; text-align: center; scroll-margin-top: 80px; }
+        .contact h2 { font-size: 2.2rem; margin-bottom: 10px; }
+        .contact-container { max-width: 500px; margin: 40px auto 0; }
+        form { display: flex; flex-direction: column; gap: 15px; margin-top: 25px; }
+        input, textarea { padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; width: 100%; }
+        input:focus, textarea:focus { outline: 2px solid #00d4ff; border-color: transparent; }
+        .divider { margin: 25px 0; color: #888; display: flex; align-items: center; justify-content: center; }
+        .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: #ddd; margin: 0 15px; }
 
-        .contact-box h2 { font-size: 3.5rem; margin-bottom: 30px; }
-
-        footer { 
-            padding: 50px; 
-            text-align: center; 
-            border-top: 1px solid #111; 
-            font-size: 0.7rem; 
-            letter-spacing: 2px; 
-            color: #444; 
-            text-transform: uppercase;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .service-row { flex-direction: column; }
-            .service-num { margin-bottom: 10px; }
-        }
+        footer { padding: 40px 20px; text-align: center; background: #1a1a1a; color: white; }
+        footer p { opacity: 0.8; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="#" class="logo">JUDECOM</a>
+        <nav>
+            <div class="logo">JUDECOM</div>
+            <div>
+                <a href="#services" style="color:white; margin-left:20px; text-decoration:none; font-weight: 500;">Services</a>
+                <a href="#contact" style="color:white; margin-left:20px; text-decoration:none; font-weight: 500;">Contact</a>
+            </div>
+        </nav>
     </header>
 
     <section class="hero">
-        <span class="section-tag">Established 2026</span>
-        <h1>The Art of Digital Influence</h1>
-        <p>Architecting premium digital experiences for world-class brands.</p>
-        <a href="https://wa.me/message/KGVRAXX54IFPA1" class="cta-button">Secure a Consultation</a>
+        <div>
+            <h1>Grow Your Business Faster</h1>
+            <p>Data-driven marketing strategies that deliver results.</p>
+            <a href="#contact" class="btn">Get a Free Audit</a>
+        </div>
     </section>
 
-    <section class="services">
-        <span class="section-tag">Expertise</span>
-        <h2>Our Disciplines</h2>
-
-        <div class="service-row">
-            <div class="service-num">01</div>
-            <div class="service-content">
-                <h3>Strategic Acquisition</h3>
-                <p>High-precision SEO and paid media targeting designed to capture the attention of high-net-worth audiences.</p>
+    <section id="services" class="services">
+        <h2>Our Marketing Services</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>SEO Optimization</h3>
+                <p>Rank higher on Google and get found by your ideal customers through organic search growth.</p>
             </div>
-        </div>
-
-        <div class="service-row">
-            <div class="service-num">02</div>
-            <div class="service-content">
-                <h3>Visual Storytelling</h3>
-                <p>Content production and brand identity that transforms your business into a cultural icon.</p>
+            <div class="card">
+                <h3>Social Media</h3>
+                <p>Build an engaging brand presence and community across all major social platforms.</p>
             </div>
-        </div>
-
-        <div class="service-row">
-            <div class="service-num">03</div>
-            <div class="service-content">
-                <h3>Conversion Architecture</h3>
-                <p>Website optimization focused on seamless user journeys and elite performance metrics.</p>
+            <div class="card">
+                <h3>Paid Advertising</h3>
+                <p>High-converting PPC campaigns for Facebook, Instagram, and Google Ads to scale fast.</p>
             </div>
         </div>
     </section>
 
-    <section class="contact-box">
-        <h2>Inquire for Partnership</h2>
-        <p style="margin-bottom: 40px; color: var(--soft-gray);">Available for selective client engagements.</p>
-        <a href="https://wa.me/message/KGVRAXX54IFPA1" class="cta-button">Connect on WhatsApp</a>
+    <section id="contact" class="contact">
+        <h2>Work With Us</h2>
+        <p>Ready to scale? Choose your preferred way to reach out.</p>
+        
+        <div class="contact-container">
+            <a href="https://wa.me/message/KGVRAXX54IFPA1" target="_blank" class="btn btn-whatsapp">
+                Chat on WhatsApp
+            </a>
+
+            <div class="divider">OR SEND AN EMAIL</div>
+
+            <form action="https://formspree.io/f/your-id" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Tell us about your project" rows="5" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
     </section>
 
     <footer>
-        &copy; 2026 JUDECOM PRIVATE LIMITED. ALL RIGHTS RESERVED.
+        <p>&copy; 2026 JUDECOM Marketing. Built by judeotsieno200-star.</p>
     </footer>
 
 </body>
-                </html>
-                
+</html>
