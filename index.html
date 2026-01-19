@@ -3,136 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JUDECOM | Bespoke Digital Marketing</title>
+    <title>JUDECOM | Premier Digital Agency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gold: #D4AF37;
-            --dark: #121212;
-            --light: #FFFFFF;
-            --gray: #f8f9fa;
+            --accent: #c5a059; /* Champagne Gold */
+            --bg: #0a0a0a;    /* Deep Midnight */
+            --text: #ffffff;
+            --soft-gray: #a1a1a1;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Playfair Display', serif, system-ui; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: var(--bg); 
+            color: var(--text); 
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
 
-        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+        h1, h2, .logo { font-family: 'Cormorant Garamond', serif; }
 
+        /* Navigation */
         header { 
-            background: rgba(18, 18, 18, 0.95); 
-            backdrop-filter: blur(10px);
-            color: white; 
-            padding: 1.5rem; 
-            position: fixed; 
+            padding: 2rem; 
+            position: absolute; 
             width: 100%; 
-            top: 0; 
-            z-index: 1000;
-            border-bottom: 1px solid var(--gold);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; }
-        .logo { font-size: 1.8rem; font-weight: 800; letter-spacing: 2px; color: var(--gold); }
+        .logo { font-size: 2rem; letter-spacing: 4px; color: var(--text); text-decoration: none; }
 
-        .hero { 
-            height: 100vh; 
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=80'); 
-            background-size: cover; 
-            background-position: center;
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: white; 
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.9)), 
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
             padding: 0 20px;
         }
 
-        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; font-weight: 700; }
-        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; color: #ccc; }
+        .hero h1 { font-size: 4.5rem; line-height: 1; margin-bottom: 20px; font-weight: 600; }
+        .hero p { font-size: 1.1rem; color: var(--soft-gray); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 40px; max-width: 600px; }
 
-        .btn-gold { 
-            background: var(--gold); 
-            color: var(--dark); 
-            padding: 15px 40px; 
-            text-decoration: none; 
-            border-radius: 2px; 
-            font-weight: bold; 
-            transition: 0.4s;
+        /* Buttons */
+        .cta-button {
+            padding: 18px 45px;
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: all 0.4s ease;
         }
 
-        .btn-gold:hover { background: #fff; transform: scale(1.05); }
-
-        .services { padding: 100px 20px; max-width: 1200px; margin: auto; text-align: center; }
-        .services h2 { font-size: 2.5rem; margin-bottom: 50px; position: relative; }
-        .services h2::after { content: ''; width: 50px; height: 3px; background: var(--gold); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-        .card { 
-            padding: 40px; 
-            background: var(--gray);
-            border: none; 
-            transition: 0.4s;
-            text-align: left;
+        .cta-button:hover {
+            background: var(--accent);
+            color: var(--bg);
+            box-shadow: 0 0 25px rgba(197, 160, 89, 0.4);
         }
 
-        .card:hover { 
-            background: var(--dark); 
-            color: white; 
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        /* Services Section */
+        .services { padding: 120px 10%; background: #0f0f0f; }
+        .section-tag { color: var(--accent); font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; display: block; margin-bottom: 20px; }
+        .services h2 { font-size: 3rem; margin-bottom: 60px; }
+
+        .service-row {
+            display: flex;
+            border-bottom: 1px solid #222;
+            padding: 40px 0;
+            transition: 0.3s;
         }
 
-        .card h3 { color: var(--gold); margin-bottom: 15px; }
+        .service-row:hover { border-bottom: 1px solid var(--accent); }
+        .service-num { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--accent); margin-right: 50px; }
+        .service-content h3 { font-size: 1.8rem; margin-bottom: 10px; font-weight: 400; }
+        .service-content p { color: var(--soft-gray); font-weight: 300; line-height: 1.8; }
 
-        .contact-cta { background: var(--dark); color: white; padding: 100px 20px; text-align: center; }
-        .contact-cta h2 { margin-bottom: 20px; }
+        /* Contact Section */
+        .contact-box { 
+            padding: 100px 20px; 
+            text-align: center; 
+            background: var(--bg); 
+            border-top: 1px solid #222;
+        }
 
-        footer { padding: 40px; text-align: center; background: #000; color: #666; font-size: 0.9rem; }
+        .contact-box h2 { font-size: 3.5rem; margin-bottom: 30px; }
+
+        footer { 
+            padding: 50px; 
+            text-align: center; 
+            border-top: 1px solid #111; 
+            font-size: 0.7rem; 
+            letter-spacing: 2px; 
+            color: #444; 
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .service-row { flex-direction: column; }
+            .service-num { margin-bottom: 10px; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <nav>
-            <div class="logo">JUDECOM</div>
-            <a href="https://wa.me/message/KGVRAXX54IFPA1" class="btn-gold" style="padding: 10px 20px; font-size: 0.8rem;">WhatsApp Us</a>
-        </nav>
+        <a href="#" class="logo">JUDECOM</a>
     </header>
 
     <section class="hero">
-        <div>
-            <h1>Elevate Your Brand Identity</h1>
-            <p>We provide exclusive digital marketing strategies designed for businesses that demand excellence and growth.</p>
-            <a href="https://wa.me/message/KGVRAXX54IFPA1" class="btn-gold">Consult Now</a>
+        <span class="section-tag">Established 2026</span>
+        <h1>The Art of Digital Influence</h1>
+        <p>Architecting premium digital experiences for world-class brands.</p>
+        <a href="https://wa.me/message/KGVRAXX54IFPA1" class="cta-button">Secure a Consultation</a>
+    </section>
+
+    <section class="services">
+        <span class="section-tag">Expertise</span>
+        <h2>Our Disciplines</h2>
+
+        <div class="service-row">
+            <div class="service-num">01</div>
+            <div class="service-content">
+                <h3>Strategic Acquisition</h3>
+                <p>High-precision SEO and paid media targeting designed to capture the attention of high-net-worth audiences.</p>
+            </div>
+        </div>
+
+        <div class="service-row">
+            <div class="service-num">02</div>
+            <div class="service-content">
+                <h3>Visual Storytelling</h3>
+                <p>Content production and brand identity that transforms your business into a cultural icon.</p>
+            </div>
+        </div>
+
+        <div class="service-row">
+            <div class="service-num">03</div>
+            <div class="service-content">
+                <h3>Conversion Architecture</h3>
+                <p>Website optimization focused on seamless user journeys and elite performance metrics.</p>
+            </div>
         </div>
     </section>
 
-    <section id="services" class="services">
-        <h2>Premium Services</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Strategic Growth</h3>
-                <p>Custom-tailored roadmaps designed to scale your business using advanced data analytics and market trends.</p>
-            </div>
-            <div class="card">
-                <h3>Elite Brand Design</h3>
-                <p>Crafting a visual identity that commands authority and builds instant trust with your high-value audience.</p>
-            </div>
-            <div class="card">
-                <h3>Digital Dominance</h3>
-                <p>Comprehensive SEO and PPC management that places your brand at the forefront of your industry.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact-cta">
-        <h2>Ready for the Next Level?</h2>
-        <p style="margin-bottom: 40px;">Direct access to our specialists via WhatsApp for a personalized consultation.</p>
-        <a href="https://wa.me/message/KGVRAXX54IFPA1" class="btn-gold">Send a Message</a>
+    <section class="contact-box">
+        <h2>Inquire for Partnership</h2>
+        <p style="margin-bottom: 40px; color: var(--soft-gray);">Available for selective client engagements.</p>
+        <a href="https://wa.me/message/KGVRAXX54IFPA1" class="cta-button">Connect on WhatsApp</a>
     </section>
 
     <footer>
-        <p>&copy; 2026 JUDECOM | Luxury Marketing Solutions. Built by judeotsieno200-star.</p>
+        &copy; 2026 JUDECOM PRIVATE LIMITED. ALL RIGHTS RESERVED.
     </footer>
 
 </body>
-</html>
+                </html>
+                
