@@ -19,9 +19,9 @@
         .hero p { font-size: 1.2rem; margin-bottom: 30px; color: #ddd; }
 
         /* Buttons */
-        .btn { display: inline-block; background: #00d4ff; color: #1a1a1a; padding: 14px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; border: none; font-size: 1rem; cursor: pointer; }
+        .btn { display: inline-block; background: #00d4ff; color: #1a1a1a; padding: 14px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; border: none; font-size: 1rem; cursor: pointer; text-align: center; }
         .btn:hover { background: #00b8e6; transform: translateY(-2px); }
-        .btn-whatsapp { background: #25D366; color: white; margin-bottom: 20px; }
+        .btn-whatsapp { background: #25D366; color: white; width: 100%; max-width: 300px; }
         .btn-whatsapp:hover { background: #1ebd59; color: white; }
 
         /* Services Grid */
@@ -96,10 +96,13 @@
 
             <div class="divider">OR SEND AN EMAIL</div>
 
-            <form action="https://formspree.io/f/your-id" method="POST">
+            <form action="https://formspree.io/f/judeotsieno200@gmail.com" method="POST">
                 <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="email" name="_replyto" placeholder="Your Email" required>
                 <textarea name="message" placeholder="Tell us about your project" rows="5" required></textarea>
+                
+                <input type="hidden" name="_subject" value="New Lead from JUDECOM Website">
+                
                 <button type="submit" class="btn">Send Message</button>
             </form>
         </div>
