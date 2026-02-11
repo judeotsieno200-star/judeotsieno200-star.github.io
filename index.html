@@ -3,360 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMARTHIRE CV SOLUTIONS | Professional CV Services Kenya</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>JUDECOM | Digital Marketing Solutions</title>
     <style>
-        :root {
-            --navy: #1a2a3a;
-            --blue: #2c3e50;
-            --light-gray: #f4f7f6;
-            --white: #ffffff;
-            --green: #27ae60;
-            --accent-blue: #007bff;
-        }
+        /* Base Reset & Smooth Scrolling */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        html { scroll-behavior: smooth; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--white);
-            color: #333;
-        }
-
-        /* Header & Navigation */
-        header {
-            background: var(--white);
-            padding: 15px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-icon {
-            background: var(--navy);
-            color: white;
-            padding: 8px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        .logo-text {
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--navy);
-            letter-spacing: 1px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--navy);
-            margin-left: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent-blue);
-        }
-
+        header { background: #1a1a1a; color: white; padding: 1rem; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: auto; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #00d4ff; letter-spacing: 1px; }
+        
         /* Hero Section */
-        .hero {
-            position: relative;
-            height: 550px;
-            display: flex;
-            align-items: center;
-            background: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-            padding: 0 10%;
-        }
+        .hero { height: 80vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; color: white; text-align: center; margin-top: 60px; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 15px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; color: #ddd; }
 
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
+        /* Buttons */
+        .btn { display: inline-block; background: #00d4ff; color: #1a1a1a; padding: 14px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; border: none; font-size: 1rem; cursor: pointer; text-align: center; }
+        .btn:hover { background: #00b8e6; transform: translateY(-2px); }
+        .btn-whatsapp { background: #25D366; color: white; width: 100%; max-width: 300px; }
+        .btn-whatsapp:hover { background: #1ebd59; color: white; }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 650px;
-        }
+        /* Services Grid */
+        .services { padding: 80px 20px; max-width: 1100px; margin: auto; text-align: center; scroll-margin-top: 80px; }
+        .services h2 { font-size: 2.2rem; margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { padding: 30px; border: 1px solid #eee; border-radius: 12px; transition: 0.3s; background: #fff; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .card h3 { margin-bottom: 15px; color: #1a1a1a; }
+        .card p { color: #666; line-height: 1.6; }
 
-        .hero-content h1 {
-            font-size: 3rem;
-            color: var(--white);
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
+        /* Contact Section */
+        .contact { background: #f9f9f9; padding: 80px 20px; text-align: center; scroll-margin-top: 80px; }
+        .contact h2 { font-size: 2.2rem; margin-bottom: 10px; }
+        .contact-container { max-width: 500px; margin: 40px auto 0; }
+        form { display: flex; flex-direction: column; gap: 15px; margin-top: 25px; }
+        input, textarea { padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; width: 100%; }
+        input:focus, textarea:focus { outline: 2px solid #00d4ff; border-color: transparent; }
+        .divider { margin: 25px 0; color: #888; display: flex; align-items: center; justify-content: center; }
+        .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: #ddd; margin: 0 15px; }
 
-        .hero-content p {
-            font-size: 1.4rem;
-            color: var(--white);
-            font-weight: 500;
-        }
-
-        /* Services Section */
-        .section-title {
-            text-align: left;
-            padding: 50px 10% 20px 10%;
-            font-size: 1.8rem;
-            color: var(--navy);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 0 10% 20px 10%;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Snappy pop effect */
-            cursor: pointer;
-        }
-
-        /* POP EFFECT ON HOVER/TOUCH */
-        .service-card:hover, .service-card:active {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-            border-color: var(--navy);
-        }
-
-        .service-card h3 {
-            margin-bottom: 15px;
-            color: var(--navy);
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            transition: border-color 0.3s ease;
-        }
-
-        .service-card:hover h3 {
-            border-bottom-color: var(--accent-blue);
-        }
-
-        .price-list {
-            list-style: none;
-        }
-
-        .price-list li {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-
-        .price-amt {
-            font-weight: bold;
-            color: var(--green);
-        }
-
-        /* CTA Button Section */
-        .cta-container {
-            padding: 20px 10% 60px 10%;
-        }
-
-        .order-now-btn {
-            background: var(--navy);
-            color: white;
-            padding: 18px 35px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(26, 42, 58, 0.2);
-        }
-
-        .order-now-btn:hover {
-            background: #2c3e50;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(26, 42, 58, 0.3);
-        }
-
-        /* How It Works Section */
-        .how-it-works {
-            background: var(--light-gray);
-            padding: 80px 10%;
-        }
-
-        .process-text {
-            color: #666;
-            line-height: 1.8;
-            max-width: 800px;
-            margin-top: 20px;
-            margin-bottom: 40px;
-        }
-
-        .steps {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .step-box {
-            background: white;
-            padding: 30px;
-            border-radius: 5px;
-            flex: 1;
-            min-width: 200px;
-            text-align: center;
-            border: 1px solid #ddd;
-            transition: 0.3s;
-        }
-
-        .step-box i {
-            font-size: 2rem;
-            color: var(--navy);
-            margin-bottom: 15px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--navy);
-            color: white;
-            padding: 40px 10%;
-            text-align: center;
-        }
-
-        .footer-logo {
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-            header {
-                flex-direction: column;
-                padding: 15px 5%;
-                text-align: center;
-            }
-            nav {
-                margin-top: 15px;
-            }
-            nav a {
-                margin: 0 10px;
-            }
-        }
+        footer { padding: 40px 20px; text-align: center; background: #1a1a1a; color: white; }
+        footer p { opacity: 0.8; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo-container">
-        <div class="logo-icon">S</div>
-        <div class="logo-text">SMARTHIRE<br><small style="font-size: 0.6rem; color: #666;">CV SOLUTIONS</small></div>
-    </div>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#services">Services</a>
-        <a href="#how-it-works">How It Works</a>
-    </nav>
-</header>
+    <header>
+        <nav>
+            <div class="logo">JUDECOM</div>
+            <div>
+                <a href="#services" style="color:white; margin-left:20px; text-decoration:none; font-weight: 500;">Services</a>
+                <a href="#contact" style="color:white; margin-left:20px; text-decoration:none; font-weight: 500;">Contact</a>
+            </div>
+        </nav>
+    </header>
 
-<section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <h1>SMARTHIRE CV SOLUTIONS</h1>
-        <p>Expert CV Writing Services for Modern Professionals in Kenya</p>
-    </div>
-</section>
-
-<h2 class="section-title" id="services">Our Services</h2>
-<section class="services-grid">
-    <div class="service-card">
-        <h3>Entry Level</h3>
-        <ul class="price-list">
-            <li>CV Writing <span class="price-amt">Ksh 500</span></li>
-            <li>Application Letter <span class="price-amt">Ksh 500</span></li>
-            <li>LinkedIn Optimization <span class="price-amt">Ksh 500</span></li>
-        </ul>
-    </div>
-
-    <div class="service-card">
-        <h3>Mid-Level</h3>
-        <ul class="price-list">
-            <li>CV Writing <span class="price-amt">Ksh 1,000</span></li>
-            <li>Application Letter <span class="price-amt">Ksh 1,000</span></li>
-            <li>LinkedIn Optimization <span class="price-amt">Ksh 1,000</span></li>
-        </ul>
-    </div>
-
-    <div class="service-card">
-        <h3>Top Management</h3>
-        <ul class="price-list">
-            <li>CV Writing <span class="price-amt">Ksh 2,000</span></li>
-            <li>Application Letter <span class="price-amt">Ksh 2,000</span></li>
-            <li>LinkedIn Optimization <span class="price-amt">Ksh 2,000</span></li>
-        </ul>
-    </div>
-</section>
-
-<div class="cta-container">
-    <a href="https://wa.me/YOUR_PHONE_NUMBER" class="order-now-btn">
-        ORDER YOUR CV NOW <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
-    </a>
-</div>
-
-<section class="how-it-works" id="how-it-works">
-    <h2>How It Works</h2>
-    <p class="process-text">
-        Stand out from the competition. We help job seekers in Kenya create high-impact documents optimized for Applicant Tracking Systems (ATS).
-    </p>
-    <div class="steps">
-        <div class="step-box">
-            <i class="fas fa-file-upload"></i><br>
-            <strong>1. Send Details</strong>
+    <section class="hero">
+        <div>
+            <h1>Grow Your Business Faster</h1>
+            <p>Data-driven marketing strategies that deliver results.</p>
+            <a href="#contact" class="btn">Get a Free Audit</a>
         </div>
-        <div class="step-box">
-            <i class="fas fa-mobile-alt"></i><br>
-            <strong>2. Make Payment</strong>
-        </div>
-        <div class="step-box">
-            <i class="fas fa-clock"></i><br>
-            <strong>3. Get CV (24-48 hrs)</strong>
-        </div>
-    </div>
-</section>
+    </section>
 
-<footer>
-    <div class="footer-logo">SMARTHIRE CV SOLUTIONS</div>
-    <p>&copy; 2026 Professional CV Writing Services Kenya. All Rights Reserved.</p>
-</footer>
+    <section id="services" class="services">
+        <h2>Our Marketing Services</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>SEO Optimization</h3>
+                <p>Rank higher on Google and get found by your ideal customers through organic search growth.</p>
+            </div>
+            <div class="card">
+                <h3>Social Media</h3>
+                <p>Build an engaging brand presence and community across all major social platforms.</p>
+            </div>
+            <div class="card">
+                <h3>Paid Advertising</h3>
+                <p>High-converting PPC campaigns for Facebook, Instagram, and Google Ads to scale fast.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Work With Us</h2>
+        <p>Ready to scale? Choose your preferred way to reach out.</p>
+        
+        <div class="contact-container">
+            <a href="https://wa.me/message/KGVRAXX54IFPA1" target="_blank" class="btn btn-whatsapp">
+                Chat on WhatsApp
+            </a>
+
+            <div class="divider">OR SEND AN EMAIL</div>
+
+            <form action="https://formspree.io/f/judeotsieno200@gmail.com" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="_replyto" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Tell us about your project" rows="5" required></textarea>
+                
+                <input type="hidden" name="_subject" value="New Lead from JUDECOM Website">
+                
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 JUDECOM Marketing. Built by judeotsieno200-star.</p>
+    </footer>
 
 </body>
-</html>
+                    </html>
+                    
